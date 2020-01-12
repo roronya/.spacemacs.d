@@ -49,8 +49,10 @@ values."
      ;; spell-checking
      syntax-checking
      ;; version-control
-     (go :variables go-tab-width 4)
-     )
+     (go :variables
+         godoc-at-point-function 'godoc-gogetdoc
+         go-tab-width 4
+         gofmt-command "goimports"))
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages, then consider creating a layer. You can also put the
