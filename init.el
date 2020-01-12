@@ -37,7 +37,10 @@ values."
      ;; <M-m f e R> (Emacs style) to install them.
      ;; ----------------------------------------------------------------
      helm
-     auto-completion
+     ;; auto-completeの補完が出ているときでもEnterキーは改行に使いたい
+     (auto-completion :variables
+                      auto-completion-return-key-behavior nil
+                      auto-completion-tab-key-behavior 'complete)
      ;; better-defaults
      emacs-lisp
      ;; git
