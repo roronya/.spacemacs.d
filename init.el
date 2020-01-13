@@ -52,7 +52,11 @@ values."
      ;; spell-checking
      syntax-checking
      ;; version-control
+     lsp
      (go :variables
+         go-backend 'lsp
+         go-format-before-save t
+         go-use-golangci-lint t
          godoc-at-point-function 'godoc-gogetdoc
          go-tab-width 4
          gofmt-command "goimports"))
@@ -139,10 +143,10 @@ values."
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
    ;; quickly tweak the mode-line size to make separators look not too crappy.
    dotspacemacs-default-font '("Source Code Pro"
-                               :size 18
+                               :size 24
                                :weight normal
                                :width normal
-                               :powerline-scale 1.1)
+                               :powerline-scale 1.0)
    ;; The leader key
    dotspacemacs-leader-key "SPC"
    ;; The key used for Emacs commands (M-x) (after pressing on the leader key).
@@ -265,7 +269,7 @@ values."
    ;;                       text-mode
    ;;   :size-limit-kb 1000)
    ;; (default nil)
-   dotspacemacs-line-numbers nil
+   dotspacemacs-line-numbers t
    ;; Code folding method. Possible values are `evil' and `origami'.
    ;; (default 'evil)
    dotspacemacs-folding-method 'evil
@@ -315,6 +319,16 @@ layers configuration.
 This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
+  ;; frameのデフォルトの倍率を決められないっぽいので何度か適当にzoomする
+  (spacemacs/zoom-frm-in)
+  (spacemacs/zoom-frm-in)
+  (spacemacs/zoom-frm-in)
+  (spacemacs/zoom-frm-in)
+  (spacemacs/toggle-transparency) ;; ウィンドウの透化
+  (spacemacs/toggle-indent-guide-globally-on) ;; indent guideの有効化
+  (spacemacs/toggle-centered-point-globally-on) ;; カーソルを常に真ん中に来るようにする
+  (spacemacs/toggle-visual-line-navigation-globally-on) ;; 行単位でなく、見た目通りにカーソルが動けるようにする
+  (spacemacs/toggle-maximize-frame-on) ;; ウィンドウ最大化
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
